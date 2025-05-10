@@ -29,19 +29,25 @@ struct PantryView: View {
                 .frame(maxWidth: .infinity, minHeight: 200)
             } else {
                 ForEach(items) { item in
-                  HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                      Text(item.name).font(.headline)
-                      Text("Qty: \(item.quantity)").font(.subheadline)
-                    }
-                    Spacer()
-                    Text(item.expirationDate, style: .date)
-                      .font(.caption)
-                      .foregroundColor(.secondary)
-                  }
-                  .padding(.vertical, 4)
-                }
-                .onDelete(perform: deleteItems)
+                            NavigationLink {
+                                EditItemView(item: item)
+                            } label: {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(item.name)
+                                            .font(.headline)
+                                        Text("Qty: \(item.quantity.clean) \(item.unit.displayName)")
+                                            .font(.subheadline)
+                                    }
+                                    Spacer()
+                                    Text(item.expirationDate, style: .date)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.vertical, 4)
+                            }
+                        }
+                        .onDelete(perform: deleteItems)
             }
         }
         .navigationTitle("Pantry")

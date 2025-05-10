@@ -13,7 +13,8 @@ struct AddItemView: View {
     @Environment(\.modelContext) private var context
 
     @State private var name = ""
-    @State private var quantity = 1
+    @State private var quantityString = "1"
+    @State private var unit: QuantityUnit = .piece   // ← updated
     @State private var expirationDate = Date()
 
     var body: some View {
@@ -21,15 +22,35 @@ struct AddItemView: View {
             Form {
                 Section("Item Info") {
                     TextField("Name", text: $name)
-                    Stepper("Quantity: \(quantity)", value: $quantity, in: 1...999)
-                    DatePicker("Expiration Date", selection: $expirationDate, displayedComponents: .date)
+
+                    HStack {
+                        TextField("Qty", text: $quantityString)
+                            .keyboardType(.decimalPad)
+                            .frame(width: 80)
+                        Picker("", selection: $unit) {
+                            ForEach(QuantityUnit.allCases) { u in
+                                Text(u.displayName).tag(u)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                    }
+
+                    DatePicker(
+                      "Expiration Date",
+                      selection: $expirationDate,
+                      displayedComponents: .date
+                    )
                 }
 
                 Section {
                     Button("Save") {
-                        let item = PantryItem(name: name,
-                                              quantity: quantity,
-                                              expirationDate: expirationDate)
+                        let qty = Double(quantityString) ?? 1
+                        let item = PantryItem(
+                            name: name,
+                            quantity: qty,
+                            unit: unit,                    // ← works now
+                            expirationDate: expirationDate
+                        )
                         context.insert(item)
                         dismiss()
                     }
@@ -37,13 +58,11 @@ struct AddItemView: View {
                 }
             }
             .navigationTitle("Add Item")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
             }
-        }
     }
+}
+
+#Preview {
+    AddItemView()
+        .modelContainer(for: PantryItem.self, inMemory: true)
 }
