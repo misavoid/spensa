@@ -1,0 +1,44 @@
+# Xcode files
+DerivedData/
+*.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad
+
+# Build artifacts
+build/
+*.ipa
+*.app
+*.dSYM.zip
+*.dSYM
+
+# SwiftPM
+.swiftpm
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+
+# Archives
+*.xcarchive
+
+# Swift Package artifacts
+Package.resolved
+
+# User settings
+*.swiftsourceinfo
+.idea/
+*.orig
+
+# Mac files
+.DS_Store
+
