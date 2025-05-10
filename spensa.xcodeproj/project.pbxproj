@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		153ACA282DCFE8C1001863C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 153ACA272DCFE8B4001863C2 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		153ACA012DCFE306001863C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		153AC9EF2DCFE305001863C2 /* spensa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spensa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		153ACA002DCFE306001863C2 /* spensaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spensaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153ACA0A2DCFE306001863C2 /* spensaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spensaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		153ACA272DCFE8B4001863C2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +93,7 @@
 		153AC9E62DCFE305001863C2 = {
 			isa = PBXGroup;
 			children = (
+				153ACA272DCFE8B4001863C2 /* .gitignore */,
 				153AC9F12DCFE305001863C2 /* spensa */,
 				153ACA032DCFE306001863C2 /* spensaTests */,
 				153ACA0D2DCFE306001863C2 /* spensaUITests */,
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153ACA282DCFE8C1001863C2 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

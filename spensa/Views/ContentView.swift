@@ -9,53 +9,85 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                LinearGradient(
+                    colors: [.mint.opacity(0.3), .white],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+
+                VStack(spacing: 24) {
+                    Text("Spensa")
+                        .font(.system(size: 40, weight: .bold))
+                        .foregroundColor(.primary)
+
+                    Image(systemName: "cabinet.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.accentColor)
+
+                    LazyVGrid(
+                        columns: [ GridItem(.flexible()), GridItem(.flexible()) ],
+                        spacing: 20
+                    ) {
+                        // 1️⃣ Pantry
+                        NavigationLink {
+                            PantryView()
+                        } label: {
+                            HomeButton(title: "Pantry", icon: "cart.fill")
+                        }
+
+
+                        // 2️⃣ Add Item – this one actually navigates
+                        NavigationLink {
+                            AddItemView()
+                        } label: {
+                            HomeButton(title: "Add Item", icon: "plus.circle.fill")
+                        }
+
+                        // 3️⃣ Shopping List – placeholder
+                        HomeButton(title: "Shopping List", icon: "list.bullet.clipboard.fill")
+
+                        // 4️⃣ Settings – placeholder
+                        HomeButton(title: "Settings", icon: "gearshape.fill")
+                    }
+                    .padding(.top, 16)
+                }
+                .padding()
+            }
+            // .navigationBarHidden(true)
+        }
+    }
+}
+
+struct HomeButton: View {
+    var title: String
+    var icon: String
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
+        VStack {
+            Image(systemName: icon)
+                .resizable()
+                .frame(width: 40, height: 40)
+                .padding()
+                .background(.ultraThinMaterial)
+                .clipShape(Circle())
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+            Text(title)
+                .font(.headline)
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: PantryItem.self, inMemory: true)
 }
