@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		153ACA282DCFE8C1001863C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 153ACA272DCFE8B4001863C2 /* .gitignore */; };
 		15E04D9E2DD0AD6500EECCFF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 15E04D9D2DD0AD6500EECCFF /* CodeScanner */; };
+		15E04DA62DD0CD9000EECCFF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 15E04DA52DD0CD8A00EECCFF /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		153ACA002DCFE306001863C2 /* spensaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spensaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153ACA0A2DCFE306001863C2 /* spensaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spensaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		153ACA272DCFE8B4001863C2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		15E04DA52DD0CD8A00EECCFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -95,6 +97,7 @@
 		153AC9E62DCFE305001863C2 = {
 			isa = PBXGroup;
 			children = (
+				15E04DA52DD0CD8A00EECCFF /* README.md */,
 				153ACA272DCFE8B4001863C2 /* .gitignore */,
 				153AC9F12DCFE305001863C2 /* spensa */,
 				153ACA032DCFE306001863C2 /* spensaTests */,
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E04DA62DD0CD9000EECCFF /* README.md in Resources */,
 				153ACA282DCFE8C1001863C2 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
