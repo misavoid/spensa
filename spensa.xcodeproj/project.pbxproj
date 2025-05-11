@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		153ACA282DCFE8C1001863C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 153ACA272DCFE8B4001863C2 /* .gitignore */; };
+		15E04D9E2DD0AD6500EECCFF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 15E04D9D2DD0AD6500EECCFF /* CodeScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E04D9E2DD0AD6500EECCFF /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,7 @@
 			);
 			name = spensa;
 			packageProductDependencies = (
+				15E04D9D2DD0AD6500EECCFF /* CodeScanner */,
 			);
 			productName = spensa;
 			productReference = 153AC9EF2DCFE305001863C2 /* spensa.app */;
@@ -214,6 +217,9 @@
 			);
 			mainGroup = 153AC9E62DCFE305001863C2;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				15E04D9C2DD0AD6500EECCFF /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 153AC9F02DCFE305001863C2 /* Products */;
 			projectDirPath = "";
@@ -295,12 +301,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = spensa/spensa.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y68KMMTFAB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = spensa/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Spensa uses your camera to scan product barcodes so you can quickly add items to your pantry.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,8 +319,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pattit.spensa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pattit.spensa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,12 +334,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = spensa/spensa.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y68KMMTFAB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = spensa/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Spensa uses your camera to scan product barcodes so you can quickly add items to your pantry.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -341,8 +352,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pattit.spensa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pattit.spensa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -582,6 +594,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15E04D9C2DD0AD6500EECCFF /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15E04D9D2DD0AD6500EECCFF /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15E04D9C2DD0AD6500EECCFF /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 153AC9E72DCFE305001863C2 /* Project object */;
 }

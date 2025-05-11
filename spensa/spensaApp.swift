@@ -12,7 +12,7 @@ import SwiftData
 struct SpensaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DashboardView()
         }
         .modelContainer(for: PantryItem.self)
     }
